@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="juris_desc" label="JURIS_DESC" language="en" table="x_kpmg3_sample_dat_nypdcompliantdb">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>juris_desc</element>
+            <help/>
+            <hint/>
+            <label>JURIS_DESC</label>
+            <language>en</language>
+            <name>x_kpmg3_sample_dat_nypdcompliantdb</name>
+            <plural>JURIS_DESCs</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>ahutton@kpmg.com</sys_created_by>
+            <sys_created_on>2019-08-31 19:37:34</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>1ac3d62edb6fb300eb66dbc6689619e4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>JURIS_DESC</sys_name>
+            <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</sys_scope>
+            <sys_update_name>sys_documentation_x_kpmg3_sample_dat_nypdcompliantdb_juris_desc_en</sys_update_name>
+            <sys_updated_by>ahutton@kpmg.com</sys_updated_by>
+            <sys_updated_on>2019-08-31 19:37:34</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

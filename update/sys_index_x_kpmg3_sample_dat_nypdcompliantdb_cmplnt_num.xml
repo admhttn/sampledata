@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_index">
+    <sys_index action="INSERT_OR_UPDATE">
+        <col_name_string>cmplnt_num</col_name_string>
+        <index_col_name element="cmplnt_num" name="x_kpmg3_sample_dat_nypdcompliantdb">022296a6db6fb300eb66dbc668961967</index_col_name>
+        <logical_table_name>x_kpmg3_sample_dat_nypdcompliantdb</logical_table_name>
+        <sys_class_name>sys_index</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2019-08-31 22:51:36</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0530876edb63330056f3034b8a96199d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_kpmg3_sample_dat_nypdcompliantdb</sys_name>
+        <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</sys_scope>
+        <sys_update_name>sys_index_x_kpmg3_sample_dat_nypdcompliantdb_cmplnt_num</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-08-31 22:51:36</sys_updated_on>
+        <table display_value="NYPDCompliantDB" name="x_kpmg3_sample_dat_nypdcompliantdb">b8225eaadb6fb300eb66dbc6689619a7</table>
+        <unique_index>false</unique_index>
+    </sys_index>
+</record_update>

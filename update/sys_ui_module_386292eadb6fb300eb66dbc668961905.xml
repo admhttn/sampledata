@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Sample Data">386292eadb6fb300eb66dbc668961903</application>
+        <filter/>
+        <name>NYPDCompliantDBs</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_kpmg3_sample_dat.nypdcompliantdb_user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>ahutton@kpmg.com</sys_created_by>
+        <sys_created_on>2019-08-31 19:31:27</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>386292eadb6fb300eb66dbc668961905</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>NYPDCompliantDBs</sys_name>
+        <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</sys_scope>
+        <sys_update_name>sys_ui_module_386292eadb6fb300eb66dbc668961905</sys_update_name>
+        <sys_updated_by>ahutton@kpmg.com</sys_updated_by>
+        <sys_updated_on>2019-08-31 19:31:27</sys_updated_on>
+        <table>x_kpmg3_sample_dat_nypdcompliantdb</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+</record_update>
