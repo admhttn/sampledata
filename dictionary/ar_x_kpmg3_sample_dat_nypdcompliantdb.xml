@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Archive NYPDCompliantDB" max_length="40" name="ar_x_kpmg3_sample_dat_nypdcompliantdb" sizeclass="956536" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Addr pct cd" max_length="250" name="addr_pct_cd" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Boro" max_length="200" name="boro" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Cmplnt fr dt" max_length="40" name="cmplnt_fr_dt" type="string"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Cmplnt num" max_length="40" name="cmplnt_num" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Crm atpt cptd cd" max_length="80" name="crm_atpt_cptd_cd" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Hadevelopt" max_length="80" name="hadevelopt" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Intel category" max_length="100" name="intel_category" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Jurisdiction code" max_length="40" name="jurisdiction_code" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Juris desc" max_length="120" name="juris_desc" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Latitude" max_length="40" name="latitude" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Longitude" max_length="40" name="longitude" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Ofns desc" max_length="40" name="ofns_desc" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Parks nm" max_length="80" name="parks_nm" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Patrol boro" max_length="40" name="patrol_boro" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Pd desc" max_length="80" name="pd_desc" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Prem typ desc" max_length="40" name="prem_typ_desc" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Station name" max_length="40" name="station_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Susp age group" max_length="40" name="susp_age_group" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:gs.nowDateTime()" label="Archived" max_length="40" name="sys_archived" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Archive restored" max_length="40" name="sys_archive_restored" type="glide_date_time"/>
+        <index name="index">
+            <element name="cmplnt_num"/>
+        </index>
+    </element>
+</database>

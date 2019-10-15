@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="System Import Sets" source="com.glide.system_import_set">e4516f440f1113000c4e807be1050e90</dependency>
+        <min_version>1.0.0</min_version>
+        <sys_created_by>ahutton@kpmg.com</sys_created_by>
+        <sys_created_on>2019-08-31 21:04:50</sys_created_on>
+        <sys_id>30c7ee66dbe33300eb66dbc66896191f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+        <sys_updated_by>ahutton@kpmg.com</sys_updated_by>
+        <sys_updated_on>2019-08-31 21:04:50</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>

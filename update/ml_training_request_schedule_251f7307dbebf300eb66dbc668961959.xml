@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="ml_training_request_schedule">
+    <ml_training_request_schedule action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>NYPD Compl Cat</name>
+        <run_as display_value="">0d67018213a15b00c47c5e7f3244b079</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek/>
+        <run_period/>
+        <run_start>2019-09-02 16:43:20</run_start>
+        <run_time/>
+        <run_type>once</run_type>
+        <solution_definition display_value="NYPD Compl Cat">6464b84bdb2ff70056f3034b8a961929</solution_definition>
+        <sys_class_name>ml_training_request_schedule</sys_class_name>
+        <sys_created_by>ahutton@kpmg.com</sys_created_by>
+        <sys_created_on>2019-09-02 16:43:20</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>251f7307dbebf300eb66dbc668961959</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>NYPD Compl Cat</sys_name>
+        <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</sys_scope>
+        <sys_update_name>ml_training_request_schedule_251f7307dbebf300eb66dbc668961959</sys_update_name>
+        <sys_updated_by>ahutton@kpmg.com</sys_updated_by>
+        <sys_updated_on>2019-09-02 16:43:20</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </ml_training_request_schedule>
+</record_update>

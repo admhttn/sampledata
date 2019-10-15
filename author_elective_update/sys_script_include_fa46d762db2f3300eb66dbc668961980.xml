@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_kpmg3_sample_dat.WikipediaEventStream</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Wikipedia recent changes stream implementation&#13;
+https://www.mediawiki.org/wiki/API:Recent_changes_stream</description>
+        <name>WikipediaEventStream</name>
+        <script><![CDATA[function wikipediaRecentChanges() {
+  var eventsource = new EventSource("https://stream.wikimedia.org/v2/stream/recentchange");
+  
+  var feedNode = document.getElementById('feed');
+  var rateMinNode = document.getElementById('rate-min');
+  var rateAvgNode = document.getElementById('rate-avg');
+  var errorNode = document.createElement('div');
+  errorNode.className = 'alert alert-danger';
+  var infoNode = document.createElement('div');
+  infoNode.className = 'alert alert-info';
+  var updateBuffer = makeDisplayBuffer(10);
+  var freq;
+  printEvent({
+    type: 'info',
+    message: 'Connecting...'
+  });
+  eventsource.onopen = function() {
+    printEvent({
+      type: 'info',
+      message: 'Connected! Listening for events...'
+    });
+    freq = new Frequency(1000, function (count, average) {
+      rateMinNode.textContent = count;
+      rateAvgNode.textContent = average;
+    });
+  };
+
+  eventsource.onmessage = function(msg) {
+    if (freq) { freq.add(1); }
+    printEvent({type: 'message', data: msg.data});
+  };
+
+  eventsource.onerror = function(msg) {
+    // Don't print {isTrusted: true}.  (Is this an error?)
+    if (!msg.isTrusted) {
+      printEvent({
+       type: 'error',
+       data: msg
+      });
+    }
+  };
+
+  function printEvent(event) {
+    var node;
+    if (event.type === 'message') {
+      var node = document.createTextNode(event.data + '\n\n');
+      $(feedNode).prepend(node);
+      updateBuffer(node);
+    } else if (event.type === 'error') {
+      $(errorNode).empty().text('ERROR: ' + JSON.stringify(event.data));
+      if (!errorNode.parentNode) {
+        $(feedNode).before(errorNode);
+      }
+    } else if (event.type === 'info') {
+      $(infoNode).text(event.message);
+      if (!infoNode.parentNode) {
+        $(feedNode).prepend(infoNode);
+        updateBuffer(infoNode);
+      }
+    }
+  }
+
+  function makeDisplayBuffer(size) {
+    var buffer = [];
+    return function (element) {
+      buffer.push(element);
+      if (buffer.length > size) {
+        var popped = buffer.shift();
+        popped.parentNode.removeChild(popped);
+      }
+    };
+  }
+}
+
+function Frequency(interval, callback) {
+  var freq = this;
+  var rAF = window.requestAnimationFrame || setTimeout;
+
+  this.interval = interval;
+  this.callback = callback;
+  this.count = 0;
+  this.total = 0;
+  this.since = this.start = this.now();
+  function checker() {
+    freq.check();
+    rAF(checker);
+  }
+  rAF(checker);
+}
+Frequency.prototype.now = ( function () {
+  var perf = window.performance;
+  return perf.now ?
+    function () { return perf.now(); } :
+    function () { return +new Date(); };
+}() );
+Frequency.prototype.add = function (count) {
+  this.count += count;
+  this.total += count;
+  this.check();
+};
+Frequency.prototype.check = function () {
+  var count, avg, ellapsedTotal;
+  var ellapsed = this.now() - this.since;
+  if (ellapsed >= this.interval) {
+    ellapsedTotal = this.now() - this.start;
+    count = this.count;
+    // One optional digit
+    avg = (this.total / (ellapsedTotal / this.interval)).toFixed(1).replace('.0', '');
+    this.since = this.now();
+    this.count = 0;
+    this.callback(count, avg);
+  }
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>ahutton@kpmg.com</sys_created_by>
+        <sys_created_on>2019-09-01 00:32:43</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>fa46d762db2f3300eb66dbc668961980</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>WikipediaEventStream</sys_name>
+        <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</sys_scope>
+        <sys_update_name>sys_script_include_fa46d762db2f3300eb66dbc668961980</sys_update_name>
+        <sys_updated_by>ahutton@kpmg.com</sys_updated_by>
+        <sys_updated_on>2019-09-01 00:32:43</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</application>
+        <file_path/>
+        <instance_id>fc47e0f56fb78a00f51e7b2f5d3ee4e4</instance_id>
+        <instance_name>kpmguscyberlabdev</instance_name>
+        <name>sys_script_include_fa46d762db2f3300eb66dbc668961980</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_kpmg3_sample_dat.WikipediaEventStream&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;Wikipedia recent changes stream implementation&amp;#13;
+https://www.mediawiki.org/wiki/API:Recent_changes_stream&lt;/description&gt;&lt;name&gt;WikipediaEventStream&lt;/name&gt;&lt;script&gt;&lt;![CDATA[function wikipediaRecentChanges() {
+  var eventsource = new EventSource("https://stream.wikimedia.org/v2/stream/recentchange");
+  
+  var feedNode = document.getElementById('feed');
+  var rateMinNode = document.getElementById('rate-min');
+  var rateAvgNode = document.getElementById('rate-avg');
+  var errorNode = document.createElement('div');
+  errorNode.className = 'alert alert-danger';
+  var infoNode = document.createElement('div');
+  infoNode.className = 'alert alert-info';
+  var updateBuffer = makeDisplayBuffer(10);
+  var freq;
+  printEvent({
+    type: 'info',
+    message: 'Connecting...'
+  });
+  eventsource.onopen = function() {
+    printEvent({
+      type: 'info',
+      message: 'Connected! Listening for events...'
+    });
+    freq = new Frequency(1000, function (count, average) {
+      rateMinNode.textContent = count;
+      rateAvgNode.textContent = average;
+    });
+  };
+
+  eventsource.onmessage = function(msg) {
+    if (freq) { freq.add(1); }
+    printEvent({type: 'message', data: msg.data});
+  };
+
+  eventsource.onerror = function(msg) {
+    // Don't print {isTrusted: true}.  (Is this an error?)
+    if (!msg.isTrusted) {
+      printEvent({
+       type: 'error',
+       data: msg
+      });
+    }
+  };
+
+  function printEvent(event) {
+    var node;
+    if (event.type === 'message') {
+      var node = document.createTextNode(event.data + '\n\n');
+      $(feedNode).prepend(node);
+      updateBuffer(node);
+    } else if (event.type === 'error') {
+      $(errorNode).empty().text('ERROR: ' + JSON.stringify(event.data));
+      if (!errorNode.parentNode) {
+        $(feedNode).before(errorNode);
+      }
+    } else if (event.type === 'info') {
+      $(infoNode).text(event.message);
+      if (!infoNode.parentNode) {
+        $(feedNode).prepend(infoNode);
+        updateBuffer(infoNode);
+      }
+    }
+  }
+
+  function makeDisplayBuffer(size) {
+    var buffer = [];
+    return function (element) {
+      buffer.push(element);
+      if (buffer.length &gt; size) {
+        var popped = buffer.shift();
+        popped.parentNode.removeChild(popped);
+      }
+    };
+  }
+}
+
+function Frequency(interval, callback) {
+  var freq = this;
+  var rAF = window.requestAnimationFrame || setTimeout;
+
+  this.interval = interval;
+  this.callback = callback;
+  this.count = 0;
+  this.total = 0;
+  this.since = this.start = this.now();
+  function checker() {
+    freq.check();
+    rAF(checker);
+  }
+  rAF(checker);
+}
+Frequency.prototype.now = ( function () {
+  var perf = window.performance;
+  return perf.now ?
+    function () { return perf.now(); } :
+    function () { return +new Date(); };
+}() );
+Frequency.prototype.add = function (count) {
+  this.count += count;
+  this.total += count;
+  this.check();
+};
+Frequency.prototype.check = function () {
+  var count, avg, ellapsedTotal;
+  var ellapsed = this.now() - this.since;
+  if (ellapsed &gt;= this.interval) {
+    ellapsedTotal = this.now() - this.start;
+    count = this.count;
+    // One optional digit
+    avg = (this.total / (ellapsedTotal / this.interval)).toFixed(1).replace('.0', '');
+    this.since = this.now();
+    this.count = 0;
+    this.callback(count, avg);
+  }
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;ahutton@kpmg.com&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2019-09-01 00:32:43&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_id&gt;fa46d762db2f3300eb66dbc668961980&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;WikipediaEventStream&lt;/sys_name&gt;&lt;sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat"&gt;7eb156a6db6fb300eb66dbc668961952&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Sample Data Tool"&gt;7eb156a6db6fb300eb66dbc668961952&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_fa46d762db2f3300eb66dbc668961980&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;ahutton@kpmg.com&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2019-09-01 00:32:43&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>966435910</payload_hash>
+        <record_name>WikipediaEventStream</record_name>
+        <reverted_from/>
+        <source>beb196aadb6fb300eb66dbc668961974</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>ahutton@kpmg.com</sys_created_by>
+        <sys_created_on>2019-09-01 00:32:43</sys_created_on>
+        <sys_id>c657d722db2f3300eb66dbc6689619a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>16cea3d05dc0000001</sys_recorded_at>
+        <sys_updated_by>ahutton@kpmg.com</sys_updated_by>
+        <sys_updated_on>2019-09-01 00:32:43</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>ce57d722932f3300df09bedebade69a0</update_guid>
+        <update_guid_history>ce57d722932f3300df09bedebade69a0:966435910</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>ahutton@kpmg.com</sys_created_by>
+        <sys_created_on>2019-09-01 00:49:13</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>32fd2a529d0a489785ce46fc56e06d19</sys_id>
+        <sys_metadata>fa46d762db2f3300eb66dbc668961980</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>WikipediaEventStream</sys_name>
+        <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</sys_scope>
+        <sys_scope_delete display_value="">23462ab2d2c64fe0b8a5199d14c43fa4</sys_scope_delete>
+        <sys_update_name>sys_script_include_fa46d762db2f3300eb66dbc668961980</sys_update_name>
+        <sys_update_version display_value="sys_script_include_fa46d762db2f3300eb66dbc668961980">c657d722db2f3300eb66dbc6689619a1</sys_update_version>
+        <sys_updated_by>ahutton@kpmg.com</sys_updated_by>
+        <sys_updated_on>2019-09-01 00:49:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

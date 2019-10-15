@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="ml_solution_definition">
+    <ml_solution_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <capability>classification_trainer</capability>
+        <current_solution_version>6</current_solution_version>
+        <dataset_language/>
+        <fields_to_compare/>
+        <input_fields>pd_desc</input_fields>
+        <input_filter table="x_kpmg3_sample_dat_nypdcompliantdb">patrol_boro=PATROL BORO MAN SOUTH^EQ<item endquery="false" field="patrol_boro" goto="false" newquery="false" operator="=" or="false" value="PATROL BORO MAN SOUTH"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </input_filter>
+        <lookup_window_size>30</lookup_window_size>
+        <min_records>2</min_records>
+        <output_field>intel_category</output_field>
+        <prediction_input_fields/>
+        <segmentation_field/>
+        <similarity_window_filter/>
+        <solution_label>NYPD Compl Cat</solution_label>
+        <solution_name>ml_x_kpmg3_global_nypd_compl_cat</solution_name>
+        <sys_class_name>ml_solution_definition</sys_class_name>
+        <sys_created_by>ahutton@kpmg.com</sys_created_by>
+        <sys_created_on>2019-09-02 02:12:12</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>6464b84bdb2ff70056f3034b8a961929</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>NYPD Compl Cat</sys_name>
+        <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</sys_scope>
+        <sys_update_name>ml_solution_definition_6464b84bdb2ff70056f3034b8a961929</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-09-11 00:09:29</sys_updated_on>
+        <table>x_kpmg3_sample_dat_nypdcompliantdb</table>
+        <table_to_compare/>
+        <threshold>50</threshold>
+        <trainer display_value="Classification Template">aebf0b7487a31300f018f7c736cb0b59</trainer>
+        <training_frequency>run_once</training_frequency>
+        <update_frequency>every_15_minutes</update_frequency>
+        <use_segmentation>false</use_segmentation>
+        <word_vector_corpus/>
+    </ml_solution_definition>
+</record_update>

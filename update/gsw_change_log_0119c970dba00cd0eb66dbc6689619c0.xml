@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_change_log">
+    <gsw_change_log action="INSERT_OR_UPDATE">
+        <change_date>2019-10-14 20:44:35</change_date>
+        <changed_by display_value="">0d67018213a15b00c47c5e7f3244b079</changed_by>
+        <content display_value="Cloud Accounts">48d4e45893c13200bebe7344967ffb07</content>
+        <related_change_log_entry/>
+        <related_task_entry/>
+        <sys_class_name>gsw_change_log</sys_class_name>
+        <sys_created_by>ahutton@kpmg.com</sys_created_by>
+        <sys_created_on>2019-10-14 20:44:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0119c970dba00cd0eb66dbc6689619c0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2019-10-14 20:44:35</sys_name>
+        <sys_package display_value="Sample Data Tool" source="x_kpmg3_sample_dat">7eb156a6db6fb300eb66dbc668961952</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Sample Data Tool">7eb156a6db6fb300eb66dbc668961952</sys_scope>
+        <sys_update_name>gsw_change_log_0119c970dba00cd0eb66dbc6689619c0</sys_update_name>
+        <sys_updated_by>ahutton@kpmg.com</sys_updated_by>
+        <sys_updated_on>2019-10-14 20:44:35</sys_updated_on>
+        <type>1</type>
+    </gsw_change_log>
+</record_update>

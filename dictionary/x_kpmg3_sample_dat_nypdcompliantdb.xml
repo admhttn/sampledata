@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="NYPDCompliantDB" max_length="40" name="x_kpmg3_sample_dat_nypdcompliantdb" type="collection">
+    <element label="NYPDCompliantDB" max_length="40" name="x_kpmg3_sample_dat_nypdcompliantdb" sizeclass="2796313" type="collection">
         <element comments="The precinct in which the incident occurred" label="ADDR_PCT_CD" max_length="250" name="addr_pct_cd" type="string"/>
         <element comments="The name of the borough in which the incident occurred" label="BORO" max_length="200" name="boro" type="string"/>
-        <element comments="Exact date of occurrence for the reported event (or starting date of occurrence, if CMPLNT_TO_DT exists)" label="CMPLNT_FR_DT" max_length="40" name="cmplnt_fr_dt" type="glide_date"/>
+        <element comments="Exact date of occurrence for the reported event (or starting date of occurrence, if CMPLNT_TO_DT exists)" label="CMPLNT_FR_DT" max_length="40" name="cmplnt_fr_dt" type="string"/>
         <element comments="Randomly generated persistent ID for each complaint" display="true" label="CMPLNT_NUM" max_length="40" name="cmplnt_num" type="string"/>
         <element comments="Indicator of whether crime was successfully completed or attempted, but failed or was interrupted prematurely" label="CRM_ATPT_CPTD_CD" max_length="80" name="crm_atpt_cptd_cd" type="string"/>
         <element comments="Name of NYCHA housing development of occurrence, if applicable" label="HADEVELOPT" max_length="80" name="hadevelopt" type="string"/>
+        <element choice="1" label="Intel Category" max_length="40" name="intel_category" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="LARCENY" sequence="0" value="LARCENY"/>
+                <element inactive_on_update="false" label="ASSAULT" sequence="1" value="ASSAULT"/>
+                <element inactive_on_update="false" label="CRIMINAL MISCHIEF" sequence="2" value="CRIMINAL MISCHIEF"/>
+                <element inactive_on_update="false" label="TRESPASS" sequence="3" value="TRESPASS"/>
+                <element inactive_on_update="false" label="RECKLESS ENDANGERMENT" sequence="4" value="RECKLESS ENDANGERMENT"/>
+                <element inactive_on_update="false" label="MARIJUANA" sequence="5" value="MARIJUANA"/>
+                <element inactive_on_update="false" label="HARASSMENT" sequence="6" value="HARASSMENT"/>
+                <element inactive_on_update="false" label="POSSESSION" sequence="7" value="POSSESSION"/>
+                <element inactive_on_update="false" label="WEAPONS" sequence="8" value="WEAPONS"/>
+            </choice>
+        </element>
         <element comments="Jurisdiction responsible for incident. Either internal, like Police(0), Transit(1), and Housing(2); or external(3), like Correction, Port Authority, etc." label="JURISDICTION_CODE" max_length="40" name="jurisdiction_code" type="string"/>
         <element comments="Description of the jurisdiction code" label="JURIS_DESC" max_length="120" name="juris_desc" type="string"/>
         <element comments="Midblock Latitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326)" label="Latitude" max_length="40" name="latitude" type="string"/>
         <element comments="Midblock Longitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326)" label="Longitude" max_length="40" name="longitude" type="string"/>
+        <element label="OFNS_DESC" max_length="40" name="ofns_desc" type="string"/>
         <element comments="Name of NYC park, playground or greenspace of occurrence, if applicable (state parks are not included)" label="PARKS_NM" max_length="80" name="parks_nm" type="string"/>
+        <element label="PATROL_BORO" max_length="40" name="patrol_boro" type="string"/>
+        <element label="PD_DESC" max_length="80" name="pd_desc" type="string"/>
         <element comments="Specific description of premises; grocery store, residence, street, etc." label="PREM_TYP_DESC" max_length="40" name="prem_typ_desc" type="string"/>
         <element comments="Transit station name" label="STATION_NAME" max_length="40" name="station_name" type="string"/>
+        <element label="SUSP_AGE_GROUP" max_length="20" name="susp_age_group" type="string"/>
         <index name="index">
             <element name="cmplnt_num"/>
         </index>
