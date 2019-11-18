@@ -18,7 +18,7 @@
         <element attributes="edge_encryption_enabled=true" label="Prem typ desc" max_length="40" name="prem_typ_desc" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Station name" max_length="40" name="station_name" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Susp age group" max_length="40" name="susp_age_group" type="string"/>
-        <element attributes="edge_encryption_enabled=true" default="javascript:gs.nowDateTime()" label="Archived" max_length="40" name="sys_archived" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:gs.nowDateTime()" dynamic_default_value="79cb83a85f220100a9ad2572f2b4773c" label="Archived" max_length="40" name="sys_archived" type="glide_date_time" use_dynamic_default="true"/>
         <element attributes="edge_encryption_enabled=true" label="Archive restored" max_length="40" name="sys_archive_restored" type="glide_date_time"/>
         <index name="index">
             <element name="cmplnt_num"/>
